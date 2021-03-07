@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer"]
+margin_right = 356.0
+margin_bottom = 130.0
+window_title = "Open a Directory"
+mode = 2
+access = 2
+current_dir = "/Users/asura/Documents/Godot/Projects/Generate_Pixiv_Record_History"
+current_file = "folder"
+current_path = "/Users/asura/Documents/Godot/Projects/Generate_Pixiv_Record_History/folder"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_right = 135.0
+margin_bottom = 23.0
+text = "Browse Folder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+margin_left = 146.3
+margin_right = 281.3
+margin_bottom = 23.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_top = 25.0
+margin_right = 600.0
+margin_bottom = 597.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="confirmed" from="CanvasLayer/FileDialog" to="." method="_on_FileDialog_confirmed"]
+[connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Button2" to="." method="_on_Button2_button_up"]
