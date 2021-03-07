@@ -81,7 +81,8 @@ func save_processed_data():
 	file.close()
 
 func _on_FileDialog_confirmed():
-	get_dir_contents(fd.current_dir)
+	dir_path = fd.current_dir
+	get_dir_contents(dir_path)
 	
 
 func get_dir_contents(rootPath: String) -> Array:
@@ -132,7 +133,7 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 
 func _on_Button_button_up():
 	records.clear()
-	open_explorer(fd.current_path)
+	open_explorer(dir_path)
 	
 
 
