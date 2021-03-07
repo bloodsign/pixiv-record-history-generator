@@ -58,7 +58,6 @@ func _physics_process(delta):
 								dupes += 1
 						if dupes == 0:
 							processed.append(records[index])
-							
 #							print("processed: " + " id: " + String(records[index].id))
 						else:
 #							print("found duplicate: " + String(records[index]))
@@ -75,7 +74,7 @@ func _physics_process(delta):
 
 func save_processed_data():
 	var file = File.new()
-	var file_path = String(fd.current_path) + "RECORDS.json"
+	var file_path = "RECORDS.json"
 	file.open(file_path, File.WRITE)
 	file.store_string(to_json(processed))
 	file.close()
@@ -115,20 +114,19 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 			subDir.list_dir_begin(true, false)
 			directories.append(path)
 			_add_dir_contents(subDir, files, directories)
-
 		else:
 #			print("Found file: %s" % path)
 			files.append(path)
+			if file_name.get_basename() == "pixiv" || file_name.get_basename() == "gprh" || file_name.get_base_dir() == "RECORDS":
+				print("skip")
+			else:
 
-			var format = {
-				"id" : file_name.get_basename(),
-				 "n" : file_name,
-			}
-			
-			records.append(format)
-
+				var format = {
+					"id" : file_name.get_basename(),
+					 "n" : file_name,
+				}
+				records.append(format)
 		file_name = dir.get_next()
-
 	dir.list_dir_end()
 
 func _on_Button_button_up():
