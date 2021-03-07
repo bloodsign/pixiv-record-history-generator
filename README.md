@@ -3,4 +3,4 @@ This tool is used to generate a record.json that you can import in Powerful Pixi
 
 Download the binary/zip on my itch.io page: https://myiasis.itch.io/generate-pixiv-record-history
 
-Bsuy me some candies, :https://ko-fi.com/myiasis
+Buy me some candies, :https://ko-fi.com/myiasis
